@@ -81,7 +81,7 @@ html, body {
     line-height: 1.4;
   }
 
-.content-text {
+.content-wrapper p{
   font-size: 2vh;
   line-height:1rem;
   margin-top: 0.5rem;
