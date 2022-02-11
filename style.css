@@ -1,0 +1,481 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+html, body {
+  overflow: hidden;
+}
+
+
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  height: 130vh;
+  position:fixed;
+  width: 100%;
+  transform: translateY(30vh);
+  transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
+}
+.background:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.background:first-child {
+  background-image: url(bg1.png);
+  transform: translateY(-15vh);
+}
+.background:first-child .content-wrapper {
+  transform: translateY(15vh);
+}
+.background:nth-child(2) {
+  background-image: url(bg2.png);
+}
+.background:nth-child(3) {
+  background-image: url(bg3.png);
+}
+
+/* Set stacking context of slides */
+.background:nth-child(1) {
+  z-index: 3;
+}
+
+.background:nth-child(2) {
+  z-index: 2;
+}
+
+.background:nth-child(3) {
+  z-index: 1;
+}
+
+
+.content-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: column nowrap;
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-transform: uppercase;
+  transform: translateY(40vh);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+}
+.content-title {
+  font-size: 9vh;
+  line-height: 1.4;
+}
+.content-subtitle {
+    font-size: 3vh;
+    line-height: 1.4;
+  }
+  
+
+.background.up-scroll {
+  transform: translate3d(0, -15vh, 0);
+}
+.background.up-scroll .content-wrapper {
+  transform: translateY(15vh);
+}
+.background.up-scroll + .background {
+  transform: translate3d(0, 30vh, 0);
+}
+.background.up-scroll + .background .content-wrapper {
+  transform: translateY(30vh);
+}
+
+.background.down-scroll {
+  transform: translate3d(0, -130vh, 0);
+}
+.background.down-scroll .content-wrapper {
+  transform: translateY(40vh);
+}
+.background.down-scroll + .background:not(.down-scroll) {
+  transform: translate3d(0, -15vh, 0);
+}
+.background.down-scroll + .background:not(.down-scroll) .content-wrapper {
+  transform: translateY(15vh);
+}
+
+img{
+    width: 30%;
+    height: 30%;
+    margin-left:auto;
+    margin-right:auto;
+    object-fit: contain;
+}
+
+/* Hero Carousel
+-----------------------------*/
+.hero {
+  height: 100vh;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  
+  /* set the scroll snapping */
+  scroll-snap-type: x mandatory;
+  /* necessary for mobile scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* flex layout */
+  display: flex;
+  
+  /* enable positioning for inner content */
+  position: relative;
+  z-index: 0;
+  
+  /* hide the horiz scroll bar */
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+}
+.hero::-webkit-scrollbar {
+  /* hide the horiz scroll bar */
+  display: none; /* for Chrome, Safari, and Opera */
+}
+.hero.no-snapscroll {
+  /* style for disabling snap-scrolling when needed */
+  scroll-snap-type: none;
+}
+
+/* shared layout styles for carousel 
+and slide containers */
+.hero,
+.hero .slide {
+  min-width: 100%;
+  width: 100%;
+  
+  /* set a range for the height so
+  that the carousel and slides flex
+  between a min and max depending on 
+  the user's viewport size */
+  min-height: 35.0rem; /* 560px */
+  height: calc(100vh - 3.50rem); /* viewport - 56px */
+  max-height: 41.5rem; /* 664px */
+}
+@media only screen and (min-width: 40.000rem)  {
+  .hero,
+  .hero .slide {
+    min-height: 35.0rem; /* 560px */
+    height: calc(100vh - 3.50rem); /* viewport - 56px */
+    max-height: 50.0rem; /* 800px */
+  }
+}
+
+/* slides */
+.hero .slide {
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* set where the snapping should happen */
+  scroll-snap-align: start;
+  
+  /* enable positioning for child elements */
+  position: relative; 
+}
+
+
+/* some test colors for slide visuals */
+.hero .slide-01 {
+  background-image: url(guggenheim.png);
+}
+.hero .slide-02 {
+ background: lightblue;
+}
+.hero .slide-03 {
+  background: wheat; 
+}
+.hero .slide-04 {
+  background: mediumpurple; 
+}
+.hero .slide-05 {
+   background: turquoise; 
+}
+.hero .slide-05 {
+  background: salmon; 
+}
+
+
+/* test elements for parallax scrolling */
+.test-element-01 {
+  margin-left: 3em;
+  margin-top: 2.5em;
+}
+.test-element-02 {
+  margin-left: 12em;
+  margin-top: 2.5em;
+}
+.test-element-03 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  
+  width: 200px;
+  height: 200px;
+  
+  margin-left: -50px;
+  margin-top: -50px;
+  
+  border: 6px solid white;
+}
+
+
+
+
+/* slide elements - name */
+.slide .element.name {
+  display: inline-block;
+  margin: 0;
+  color: #3e4549;
+  font-size: 12.500rem;
+  line-height: 1.5em;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: left;
+  
+  /* text stroke, if needed, for ADA */
+  /*text-shadow:
+   -2px -2px 0 var(--white),  
+    2px -2px 0 var(--white),
+    -2px 2px 0 var(--white),
+     2px 2px 0 var(--white);*/
+  
+  position: absolute;
+  top: -1.5rem;
+  left: -2.25rem;
+  bottom: auto;
+  right: auto;
+  z-index: 203;
+}
+.slide .element.first-name {
+  text-align: left;
+  left: 0.5rem;
+}
+.slide .element.last-name {
+  text-align: right;
+  top: auto;
+  left: auto;
+  bottom: -2.5rem;
+  right: 1.5rem;
+}
+
+
+/* slide elements - image */
+.slide .element.image {
+  width: 100%;
+  position: absolute;
+  top: 55%;
+  right: 0%;
+  bottom: 0%;
+  left: -30%;
+  z-index: 201;
+  
+  padding-top: 3.0rem;
+  padding-bottom: 7.0rem;
+  
+/*   border: 4px solid lightgreen; */
+}
+.slide .element.image .inner {
+  width: 75%;
+  max-height: 100%;
+  padding-left: 7.0rem;
+  margin: 0 auto;
+}
+.slide .element.image figure {
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+
+/* slide elements - blurb */
+.slide .element.blurb {
+  display: block;
+  /* gutters on large screens: 2.0rem (32px) */
+  width: calc((((100% - 22.0rem) / 12) * 3) + 4.0rem); /* 3 columns + 2 gutters */
+  margin-left: calc((((100% - 22.0rem) / 12) * 1) + 2.0rem); /* 1 columns + 1 gutters */
+  text-align: left;
+  position: absolute;
+  top: 52.0%;
+  left: 0;
+  color: darkslategrey;
+  
+/*   border: 6px solid lightgreen; */
+}
+
+
+
+/* Hero Carousel Click Targets
+For Slides
+-----------------------------*/
+.click-targets {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 300;
+  
+  font-size: 0; /* collapse whitespace */
+}
+.click-target {
+  display: inline-block;
+  font-size: 1.0rem; /* reset */
+  text-indent: -999em; /* hide from view */
+  
+  height: 100%;
+  width: 0; /* no prev/next tap targets needed on small screens... users will just swipe */
+  
+  border: 6px solid lighttgreen;
+}
+.click-target:focus {
+  background: none;
+}
+.click-target.view-details {
+  width: 100%; /* full width on small screens */
+}
+@media only screen and (min-width: 40.000rem)  {
+  /* starting in the tablet range, add in
+  the click/tap targets for prev/next
+  on the sides */
+  .click-target {
+    width: calc((100% / 9) * 1); /* 1/9th */
+  }
+  .click-target.view-details {
+    width: calc((100% / 9) * 7); /* 7/9ths */
+  }
+}
+.click-target.previous {
+    cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTQiIGhlaWdodD0iOTQiIHZpZXdCb3g9IjAgMCA5NCA5NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00NyA5NEM3Mi45NTc0IDk0IDk0IDcyLjk1NzQgOTQgNDdDOTQgMjEuMDQyNiA3Mi45NTc0IDAgNDcgMEMyMS4wNDI2IDAgMCAyMS4wNDI2IDAgNDdDMCA3Mi45NTc0IDIxLjA0MjYgOTQgNDcgOTRaTTQ3IDkzQzcyLjQwNTEgOTMgOTMgNzIuNDA1MSA5MyA0N0M5MyAyMS41OTQ5IDcyLjQwNTEgMSA0NyAxQzIxLjU5NDkgMSAxIDIxLjU5NDkgMSA0N0MxIDcyLjQwNTEgMjEuNTk0OSA5MyA0NyA5M1oiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik00MCAzN0wzMCA0N0w0MCA1NyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNNjAuMDAwMyA0N0gzMS42NjciIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTMwIDQ3SDMxLjY2NjciIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==) 50 50, auto;
+}
+.click-target.next {
+    cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTQiIGhlaWdodD0iOTQiIHZpZXdCb3g9IjAgMCA5NCA5NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00NyA5NEM3Mi45NTc0IDk0IDk0IDcyLjk1NzQgOTQgNDdDOTQgMjEuMDQyNiA3Mi45NTc0IDAgNDcgMEMyMS4wNDI2IDAgMCAyMS4wNDI2IDAgNDdDMCA3Mi45NTc0IDIxLjA0MjYgOTQgNDcgOTRaTTQ3IDkzQzcyLjQwNTEgOTMgOTMgNzIuNDA1MSA5MyA0N0M5MyAyMS41OTQ5IDcyLjQwNTEgMSA0NyAxQzIxLjU5NDkgMSAxIDIxLjU5NDkgMSA0N0MxIDcyLjQwNTEgMjEuNTk0OSA5MyA0NyA5M1oiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik01MCA1N0w2MCA0N0w1MCAzNyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNMzAgNDdINTguMzMzMyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNNTkuOTk5NyA0N0g1OC4zMzMiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==) 50 50, auto;
+}
+.click-target.view-details {
+    cursor: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQ5LjUiIGZpbGw9ImJsYWNrIiBzdHJva2U9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0xOS43MTQ4IDQwLjcxOTdWNDEuMDc5N0wyNS44MjI4IDU3Ljk5OTdIMjkuNTkwOEwzNS42OTg4IDQxLjA3OTdWNDAuNzE5N0gzMi43NzA4TDI3Ljg2MjggNTQuOTk5N0gyNy42MjI4TDIyLjcxNDggNDAuNzE5N0gxOS43MTQ4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTM3Ljk3ODUgNDAuNzE5N1Y1Ny45OTk3SDQwLjk0MjVWNDAuNzE5N0gzNy45Nzg1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTQ0LjQ3MDcgNDAuNzE5N1Y1Ny45OTk3SDU2LjkyNjdWNTUuNzU1N0g0Ny40MzQ3VjUwLjM5MTdINTUuNTU4N1Y0OC4xNTk3SDQ3LjQzNDdWNDIuOTYzN0g1Ni43NTg3VjQwLjcxOTdINDQuNDcwN1oiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik01OC40MzY0IDQwLjcxOTdWNDEuMDc5N0w2Mi4zOTY0IDU3Ljk5OTdINjYuMjM2NEw2OS42OTI0IDQ0LjY2NzdINjkuOTMyNEw3My4zNzY0IDU3Ljk5OTdINzcuMjE2NEw4MS4xNzY0IDQxLjA3OTdWNDAuNzE5N0g3OC4zMzI0TDc1LjI4NDQgNTQuNjYzN0g3NS4wNDQ0TDcxLjQ1NjQgNDAuNzE5N0g2OC4yNDA0TDY0LjY0MDQgNTQuNjYzN0g2NC40MDA0TDYxLjM2NDQgNDAuNzE5N0g1OC40MzY0WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==) 50 50, auto;
+}
+
+
+
+/* Hero Carousel Nav (Pagination)
+-----------------------------*/
+.carousel-nav {
+  position: relative;
+  z-index: 2; /* stack above slides */
+  
+  /* position it visibly
+  on top of the carousel 
+  sibling element */
+  margin-top: -3.5rem;
+  padding: 0 4.0rem 2.95rem 4.0rem;
+  
+  font-size: 0;
+  line-height: 0;
+  
+  /* center on small screens */
+  text-align: center; 
+  
+  background: none;
+  
+  pointer-events: none;
+}
+@media only screen and (min-width: 40.000rem)  {
+  .carousel-nav {
+    /* center on small screens */
+    text-align: left; 
+  }
+}
+.carousel-nav a {
+  display: inline-block;
+  width: 2.0rem;
+  height: 0.563rem; /* 9px */
+  border-radius: 0; /* reset */
+  
+  margin: 0 0.375rem; /* spacing */
+  
+  position: relative;
+  
+  font-size: 1.0rem;
+  text-decoration: none;
+  text-indent: -999em; /* visually hidden */
+  overflow: hidden;
+  
+  pointer-events: auto;
+}
+.carousel-nav a:after {
+  /* visual indicators using 
+  pseudo-elements, so that the
+  main element can have a 
+  non-visual affordance for 
+  better usability / clickability */
+  
+  content:'';
+  display: block;
+  width: 100%;
+  height: 0.063rem; /* 1px */
+  
+  position: absolute;
+  top: 50%;
+  
+  background: var(--black);
+  
+}
+.carousel-nav :first-child {
+  margin-left: 0;
+}
+.carousel-nav :last-child {
+  margin-right: 0;
+}
+.carousel-nav a:focus {
+  background: none;
+}
+/* active state */
+/* add in as many slide number options 
+as is reasonably needed */
+.carousel-nav.slide-01 .slide-01:after,
+.carousel-nav.slide-02 .slide-02:after,
+.carousel-nav.slide-03 .slide-03:after,
+.carousel-nav.slide-04 .slide-04:after,
+.carousel-nav.slide-05 .slide-05:after,
+.carousel-nav.slide-06 .slide-06:after,
+.carousel-nav.slide-07 .slide-07:after,
+.carousel-nav.slide-08 .slide-08:after,
+.carousel-nav.slide-09 .slide-09:after,
+.carousel-nav.slide-10 .slide-10:after,
+.carousel-nav.slide-11 .slide-11:after,
+.carousel-nav.slide-12 .slide-12:after {
+  height: 0.188rem; /* 3px */
+  margin-top: -0.063rem; /* -1px for v-center */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.action-teaser {
+  color: var(--white);
+  text-transform: uppercase;
+  background: var(--black);
+  
+  padding: 5.0rem 0;
+}
+.action-teaser h2 {
+  font-size: 2.00em;
+  line-height: 1.20em;
+  text-transform: uppercase;
+}
