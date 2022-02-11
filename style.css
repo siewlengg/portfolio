@@ -80,7 +80,15 @@ html, body {
     font-size: 3vh;
     line-height: 1.4;
   }
-  
+
+.content-text {
+  font-size: 2vh;
+  line-height:1rem;
+  margin-top: 0.5rem;
+  margin-left: 2rem;
+  text-align: left;
+  color:lightslategray;
+}  
 
 .background.up-scroll {
   transform: translate3d(0, -15vh, 0);
@@ -374,7 +382,7 @@ For Slides
   /* position it visibly
   on top of the carousel 
   sibling element */
-  margin-top: -3.5rem;
+  margin-top: -1rem;
   padding: 0 4.0rem 2.95rem 4.0rem;
   
   font-size: 0;
