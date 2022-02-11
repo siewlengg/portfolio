@@ -81,10 +81,13 @@ html, body {
     line-height: 1.4;
   }
 
-.content-wrapper .content-text {
+.content-text {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-transform: uppercase;
+  position:absolute;
   font-size: 2vh;
   line-height:1rem;
-  margin-top: 0.5rem;
+  bottom: 6rem;
   margin-left: 2rem;
   text-align: left;
   color:lightslategray;
@@ -382,7 +385,7 @@ For Slides
   /* position it visibly
   on top of the carousel 
   sibling element */
-  margin-top: -1rem;
+  margin-top: -3rem;
   padding: 0 4.0rem 2.95rem 4.0rem;
   
   font-size: 0;
