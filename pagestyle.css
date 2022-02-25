@@ -1,0 +1,93 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/*page1css*/
+header{
+    min-width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    display:flex;
+    position:relative;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+  }
+
+  header::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+  
+
+  .intro-text{ 
+    position:absolute;
+  }
+
+  .container{
+    position:absolute;
+    top:1150%;
+    overflow-x: auto;
+    min-height: 100vh;
+    min-width: 100%;
+    background: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:50px;
+    margin: 0;
+  }
+  
+  #scroll{
+    max-height: 75vh;
+    width:auto;
+    height: auto;
+  }
+
+  #bg{
+    top:0;
+    left:0;
+    width:100%;
+    position:absolute;
+    z-index: 0;
+  }
+
+  #fg{
+    top:0;
+    left:0;
+    width:100%;
+    position:absolute;
+    z-index: 1;
+    transition: transform .01s;
+  }
+
+  h1{
+    position:fixed;
+    top:0;
+    right:1rem;
+    font-size: 2rem;
+    z-index: 2;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  /* unvisited link */
+a:link {
+  color: rgba(0,0,0,0.2);
+}
+
+/* visited link */
+a:visited {
+  color: lightgrey;
+}
+
+/* mouse over link */
+a:hover {
+  color: lightslategray;
+}
+
+/* selected link */
+a:active {
+  color: lightgrey;
+}

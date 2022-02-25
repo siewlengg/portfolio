@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 html, body {
   overflow: hidden;
+  margin:0;
+  padding:0;
+  height:100vh;
+  box-sizing: border-box;
 }
 
 
@@ -81,13 +85,24 @@ html, body {
     line-height: 1.4;
   }
 
+.content-subtitle2 {
+    font-size: 3vh;
+    line-height: 1.4;
+    color:rgba(0, 0, 0, 0.2)
+  }
+.content-subtitle3 {
+    font-size: 2vh;
+    line-height: 1.4;
+    color:rgba(0, 0, 0, 0.6)
+  }
+
 .content-text {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-transform: uppercase;
   position:absolute;
   font-size: 2vh;
   line-height:1rem;
-  bottom: 6rem;
+  bottom: 6.2rem;
   margin-left: 2rem;
   text-align: left;
   color:lightslategray;
@@ -120,8 +135,8 @@ html, body {
 }
 
 img{
-    width: 30%;
-    height: 30%;
+    width: 20%;
+    height: 20%;
     margin-left:auto;
     margin-right:auto;
     object-fit: contain;
@@ -178,7 +193,7 @@ and slide containers */
   .hero .slide {
     min-height: 35.0rem; /* 560px */
     height: calc(100vh - 3.50rem); /* viewport - 56px */
-    max-height: 50.0rem; /* 800px */
+    max-height: 100%; /* 800px */
   }
 }
 
@@ -197,22 +212,22 @@ and slide containers */
 
 /* some test colors for slide visuals */
 .hero .slide-01 {
-  background-image: url(guggenheim.png);
+  background-image: url(photos/guggenheim.png);
 }
 .hero .slide-02 {
- background: lightblue;
+ background-image: url(photos/tech.jpg);
 }
 .hero .slide-03 {
-  background: wheat; 
+  background-image: url(photos/history.jpg); 
 }
 .hero .slide-04 {
-  background: mediumpurple; 
+  background-image: url(photos/landscape.jpg); 
 }
 .hero .slide-05 {
-   background: turquoise; 
+   background-image: url(photos/biodiversity.jpg); 
 }
 .hero .slide-06 {
-  background: salmon; 
+  background-image: url(photos/learning.jpg); 
 }
 
 
@@ -246,7 +261,7 @@ and slide containers */
 .slide .element.name {
   display: inline-block;
   margin: 0;
-  color: #3e4549;
+  color: #f0f0e7;
   font-size: 12.500rem;
   line-height: 1.5em;
   font-weight: 500;
@@ -284,10 +299,10 @@ and slide containers */
 .slide .element.image {
   width: 100%;
   position: absolute;
-  top: 55%;
+  top: 40%;
   right: 0%;
   bottom: 0%;
-  left: -30%;
+  left: -35%;
   z-index: 201;
   
   padding-top: 3.0rem;
@@ -312,12 +327,13 @@ and slide containers */
   display: block;
   /* gutters on large screens: 2.0rem (32px) */
   width: calc((((100% - 22.0rem) / 12) * 3) + 4.0rem); /* 3 columns + 2 gutters */
-  margin-left: calc((((100% - 22.0rem) / 12) * 1) + 2.0rem); /* 1 columns + 1 gutters */
+  margin-left: calc((((100% - 60.0rem) / 12) * 1) + 0.0rem); /* 1 columns + 1 gutters */
   text-align: left;
   position: absolute;
-  top: 52.0%;
+  top: 78.0%;
   left: 0;
-  color: darkslategrey;
+  color: #f0f0e7;
+  background-color: rgba(0,0,0, 0.2);
   
 /*   border: 6px solid lightgreen; */
 }
@@ -466,16 +482,6 @@ as is reasonably needed */
   height: 0.188rem; /* 3px */
   margin-top: -0.063rem; /* -1px for v-center */
 }
-
-
-
-
-
-
-
-
-
-
 
 
 .action-teaser {
